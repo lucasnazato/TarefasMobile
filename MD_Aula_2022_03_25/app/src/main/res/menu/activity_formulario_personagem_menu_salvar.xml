@@ -6,7 +6,7 @@
     <item
         android:id="@+id/activity_formulario_personagem_menu_salvar"
         android:title="Salvar o personagem"
-        android:icon="@drawable/ic_add_personagem_background"
+        android:icon="@mipmap/ic_char_foreground"
         app:showAsAction="always" />
 
 </menu>
