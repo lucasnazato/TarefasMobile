@@ -83,7 +83,12 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         campoAltura = findViewById(R.id.editText_altura);
 
         SimpleMaskFormatter sfmAltura = new SimpleMaskFormatter("N", "NN");
-        
+        MaskTextWatcher mtwAltura = new MaskTextWatcher(campoAltura, smfAltura);
+        campoAltura.addTextChangedListener(mtwAltura);
+
+        SimpleMaskFormatter sfmNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
+        MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoNascimento, smfNascimento);
+        campoNascimento.addTextChangedListener(mtwNascimento);
     }
 
     private void preencherPersonagem() {
