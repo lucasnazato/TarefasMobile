@@ -1,5 +1,7 @@
 package com.example.md_aula_2022_03_25.ui.activities;
 
+import static com.example.md_aula_2022_03_25.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;

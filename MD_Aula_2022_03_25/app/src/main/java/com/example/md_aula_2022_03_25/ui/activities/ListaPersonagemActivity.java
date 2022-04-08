@@ -1,5 +1,7 @@
 package com.example.md_aula_2022_03_25.ui.activities;
 
+import static com.example.md_aula_2022_03_25.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,13 +18,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.md_aula_2022_03_25.R;
+import com.example.md_aula_2022_03_25.dao.PersonagemDAO;
 import com.example.md_aula_2022_03_25.model.Personagem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListaPersonagemActivity extends AppCompatActivity {
 
     public static final String TITULO_APPBAR = "Lista de Personagens";
-    private final PersonagemDAO dao = new PersonagemDao();
+    private final PersonagemDAO dao = new PersonagemDAO();
     private ArrayAdapter<Personagem> adapter;
 
     @Override
@@ -73,7 +76,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
     public boolean onContextItemSelected(@NonNull MenuItem item){
 
         int itemId = item.getItemId();
-        if (itemId == R.id.activity_lista_personagem_remover_menu_remover){
+        if (itemId == R.id.activity_lista_personagem_menu_remover){
 
             new AlertDialog.Builder(this)
                     .setTitle("Removendo Personagem")
@@ -102,7 +105,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
     private void configuraItemPorClique(ListView listaDePersonagens) {
         listaDePersonagens.setOnClickListener(new AdapterView.OnItemClickListener(){
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, Long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
                 Personagem personagemEscolhido = (Personagem) adapterView.getItemAtPosition(posicao);
                 abreFormularioEditar(personagemEscolhido);
             }
