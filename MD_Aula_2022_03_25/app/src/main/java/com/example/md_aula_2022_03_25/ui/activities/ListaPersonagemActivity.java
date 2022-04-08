@@ -103,7 +103,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
     }
 
     private void configuraItemPorClique(ListView listaDePersonagens) {
-        listaDePersonagens.setOnClickListener(new AdapterView.OnItemClickListener(){
+        listaDePersonagens.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
                 Personagem personagemEscolhido = (Personagem) adapterView.getItemAtPosition(posicao);
