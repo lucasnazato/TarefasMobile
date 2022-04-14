@@ -44,7 +44,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_personagem);
-        inicializacaoCampos();
+        //inicializacaoCampos();
         //configuraBotaoSalvar();
         carregaPersonagem();
         checaPermissoes();
@@ -79,19 +79,21 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         finish();
     }
 
+
     private void inicializacaoCampos() {
         campoNome = findViewById(R.id.editText_nome);
         campoNascimento = findViewById(R.id.editText_nascimento);
         campoAltura = findViewById(R.id.editText_altura);
 
-        SimpleMaskFormatter sfmAltura = new SimpleMaskFormatter("N", "NN");
-        MaskTextWatcher mtwAltura = new MaskTextWatcher(campoAltura, smfAltura);
-        campoAltura.addTextChangedListener(mtwAltura);
+        //SimpleMaskFormatter sfmAltura = new SimpleMaskFormatter("N", "NN");
+        //MaskTextWatcher mtwAltura = new MaskTextWatcher(campoAltura, smfAltura);
+        //campoAltura.addTextChangedListener(mtwAltura);
 
-        SimpleMaskFormatter sfmNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
-        MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoNascimento, smfNascimento);
-        campoNascimento.addTextChangedListener(mtwNascimento);
+        //SimpleMaskFormatter sfmNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
+        //MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoNascimento, smfNascimento);
+        //campoNascimento.addTextChangedListener(mtwNascimento);
     }
+
 
     private void preencherPersonagem() {
         String nome = campoNome.getText().toString();
