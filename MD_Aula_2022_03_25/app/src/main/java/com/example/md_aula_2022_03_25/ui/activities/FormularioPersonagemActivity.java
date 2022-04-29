@@ -16,6 +16,8 @@ import com.example.md_aula_2022_03_25.dao.PersonagemDAO;
 import com.example.md_aula_2022_03_25.model.Personagem;
 
 public class FormularioPersonagemActivity extends AppCompatActivity {
+
+    // Declarar variaveis
     private  static final String TITULO_APPBAR_EDITA_PERSONAGEM = "Editar o Persoangem";
     private static final String TITULO_APPBAR_NOVO_PERSONAGEM = "Novo Personagem";
     private EditText campoNome;
@@ -24,12 +26,14 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     private final PersonagemDAO dao = new PersonagemDAO();
     private Personagem personagem;
 
+    // Criar o menu referenciado do xml
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.activity_formulario_personagem_menu_salvar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    // Ao selecionar o item do menu, verificar a id do item, se for o item de salvar o formulario do personagem, finalizar o formulario
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         int itemID = item.getItemId();
@@ -39,17 +43,21 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Criar a view de formulario do personagem e chamar os metodos de inicializacaoCampos e carregaPersonagem
     @Override
     protected void onCreate(Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_personagem);
-        //inicializacaoCampos();
-        //configuraBotaoSalvar();
+        inicializacaoCampos();
         carregaPersonagem();
-        checaPermissoes();
+        //configuraBotaoSalvar();
+        //checaPermissoes();
     }
 
+    // Ao carregar o personagem verificar se ele já é um personagem existente ou é um novo
+    // Se for um personagem existente, carregar os dados do personagem..
+    // se não criar um novo personagem
     private void carregaPersonagem() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_PERSONAGEM)){
@@ -62,12 +70,15 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         }
     }
 
+    // Preencher os campos do personagem já existente
     private void preencheCampos() {
         campoNome.setText(personagem.getNome());
         campoAltura.setText(personagem.getAltura());
         campoNascimento.setText(personagem.getNascimento());
     }
 
+    //  Preencher os dados do personagem e se o perosnagem já existir, editar
+    // se não salvar o personagem
     private void finalizarFormulario() {
         preencherPersonagem();
         if (personagem.IdValido()) {
@@ -79,7 +90,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         finish();
     }
 
-
+    //  Pegar os campos de texto que contem as informações do personagem
     private void inicializacaoCampos() {
         campoNome = findViewById(R.id.editText_nome);
         campoNascimento = findViewById(R.id.editText_nascimento);
@@ -94,13 +105,10 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         //campoNascimento.addTextChangedListener(mtwNascimento);
     }
 
-
+    // Prencheer os campos de texto com as informaçoes do personagem
     private void preencherPersonagem() {
         String nome = campoNome.getText().toString();
         String nascimento = campoNascimento.getText().toString();
         String altura = campoAltura.getText().toString();
-    }
-
-    private void checaPermissoes() {
     }
 }

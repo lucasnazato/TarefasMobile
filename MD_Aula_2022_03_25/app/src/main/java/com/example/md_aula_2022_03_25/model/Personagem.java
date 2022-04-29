@@ -6,11 +6,13 @@ import java.io.Serializable;
 
 public class Personagem implements Serializable {
 
+    // Definir variaveis do Personagem
     private String nome;
     private String nascimento;
     private String altura;
     private int id =0;
 
+    // struct?
     public Personagem(String nome, String nascimento, String altura){
 
         this.nome = nome;
@@ -21,6 +23,7 @@ public class Personagem implements Serializable {
     public Personagem(){
     }
 
+    // Metodos para pegar e definir as variaveis
     public void setNome(String nome) { this.nome = nome; }
 
     public void setNascimento(String nascimento) { this.nascimento = nascimento; }

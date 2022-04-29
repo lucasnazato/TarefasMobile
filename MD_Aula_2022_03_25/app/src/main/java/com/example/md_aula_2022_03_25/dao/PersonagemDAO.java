@@ -7,9 +7,11 @@ import java.util.List;
 
 public class PersonagemDAO {
 
+    //
     private final static List<Personagem> personagens = new ArrayList<>();
     private static int contadorDeIds = 1;
 
+    //
     public void salva(Personagem personagemSalvo){
         personagemSalvo.setId(contadorDeIds);
         personagens.add(personagemSalvo);

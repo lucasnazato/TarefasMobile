@@ -24,10 +24,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListaPersonagemActivity extends AppCompatActivity {
 
+    //
     public static final String TITULO_APPBAR = "Lista de Personagens";
     private final PersonagemDAO dao = new PersonagemDAO();
     private ArrayAdapter<Personagem> adapter;
 
+    //
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         configuraLista();
     }
 
+    // Metodo para dar um override no click do mouse e ao clicar no botão de novo personagem abrir o formulário
     private void configuraFabNovoPersonagem() {
         FloatingActionButton botaoNovoPersonagem = findViewById(R.id.fab_add);
         botaoNovoPersonagem.setOnClickListener(new View.OnClickListener() {
@@ -45,26 +48,31 @@ public class ListaPersonagemActivity extends AppCompatActivity {
        });
     }
 
+    // Iniciar a atividade do formulario
     private void abreFormulario(){
         startActivity(new Intent(this, FormularioPersonagemActivity.class));
     }
 
+    // Dar override no metodo onResume (deixa o app no foreground) e chamar o metodo atualizaPersonagem
     @Override
     protected void onResume(){
         super.onResume();
         atualizaPersonagem();
     }
 
+    // Limpa os dados da lista e em seguida adiciona os dados atualizados
     private void atualizaPersonagem(){
         adapter.clear();
         adapter.addAll(dao.todos());
     }
 
+    // Remove o personagem da lista
     private void remove(Personagem personagem){
         dao.remove(personagem);
         adapter.remove(personagem);
     }
 
+    //
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -72,6 +80,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.activity_lista_personagem_menu, menu);
     }
 
+    //
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item){
 
