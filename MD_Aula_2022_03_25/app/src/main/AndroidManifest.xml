@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MD_Aula_2022_03_25">
-        <activity
-            android:name=".ui.activities.FormularioPersonagemActivity"
+        <activity android:name=".ui.activities.FormularioPersonagemActivity" />
+        <activity android:name=".ui.activities.ListaPersonagemActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

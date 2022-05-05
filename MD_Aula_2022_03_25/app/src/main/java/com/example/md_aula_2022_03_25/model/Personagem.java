@@ -10,7 +10,7 @@ public class Personagem implements Serializable {
     private String nome;
     private String nascimento;
     private String altura;
-    private int id =0;
+    private int id = 0;
 
     // struct?
     public Personagem(String nome, String nascimento, String altura){

@@ -18,7 +18,7 @@ import com.example.md_aula_2022_03_25.model.Personagem;
 public class FormularioPersonagemActivity extends AppCompatActivity {
 
     // Declarar variaveis
-    private  static final String TITULO_APPBAR_EDITA_PERSONAGEM = "Editar o Persoangem";
+    private  static final String TITULO_APPBAR_EDITA_PERSONAGEM = "Editar o Personagem";
     private static final String TITULO_APPBAR_NOVO_PERSONAGEM = "Novo Personagem";
     private EditText campoNome;
     private EditText campoNascimento;
@@ -51,8 +51,6 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_personagem);
         inicializacaoCampos();
         carregaPersonagem();
-        //configuraBotaoSalvar();
-        //checaPermissoes();
     }
 
     // Ao carregar o personagem verificar se ele já é um personagem existente ou é um novo
@@ -77,7 +75,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         campoNascimento.setText(personagem.getNascimento());
     }
 
-    //  Preencher os dados do personagem e se o perosnagem já existir, editar
+    //  Preencher os dados do personagem e se o personagem já existir, editar
     // se não salvar o personagem
     private void finalizarFormulario() {
         preencherPersonagem();
@@ -110,5 +108,9 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         String nome = campoNome.getText().toString();
         String nascimento = campoNascimento.getText().toString();
         String altura = campoAltura.getText().toString();
+
+        personagem.setNome(nome);
+        personagem.setAltura(altura);
+        personagem.setNascimento(nascimento);
     }
 }
